@@ -25,4 +25,3 @@ struct OnBoardingView__Previews: PreviewProvider {
         OnBoardingView(fruits: fruitData)
     }
 }
- 

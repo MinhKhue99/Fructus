@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-
+    
     // MARK: - PROPERTY
     var fruits: [Fruit] = fruitData
-
+    @State private var isShowingSetting: Bool = false
     // MARK: - BODY
     var body: some View {
         NavigationView {
@@ -24,7 +24,19 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Fruits")
+            .navigationBarItems(
+                trailing:
+                    Button(action: {
+                        isShowingSetting = true
+                    }) {
+                        Image(systemName: "slider.horizontal.3")
+                    }
+                    .sheet(isPresented: $isShowingSetting) {
+                        SettingView()
+                    }
+            )
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

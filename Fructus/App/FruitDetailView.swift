@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct FruitDetailView: View {
-
+    
     // MARK: - PROPERTY
     var fruit: Fruit
-
+    
     // MARK: - BODY
     var body: some View {
         NavigationView {
@@ -25,24 +25,24 @@ struct FruitDetailView: View {
                             .font(.largeTitle)
                             .fontWeight(.heavy)
                             .foregroundColor(fruit.gradientColors[1])
-
+                        
                         // MARK: - HEADLINE
                         Text(fruit.headline)
                             .font(.headline)
                             .multilineTextAlignment(.leading)
                         // MARK: - NUTRIENTS
                         FruitNutrientView(fruit: fruit)
-
+                        
                         // MARK: - SUBHEADLINE
                         Text("Learn more about \(fruit.title)".uppercased())
                             .fontWeight(.bold)
                             .foregroundColor(fruit.gradientColors[1])
-
-
+                        
+                        
                         // MARK: - DESCRIPTION
                         Text(fruit.description)
                             .multilineTextAlignment(.leading)
-
+                        
                         // MARK: - LINK
                         SourcelinkView(fruit: fruit)
                             .padding(.top, 10)
@@ -56,6 +56,7 @@ struct FruitDetailView: View {
             }
             .edgesIgnoringSafeArea(.top)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
